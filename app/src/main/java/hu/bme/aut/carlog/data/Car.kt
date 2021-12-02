@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "carList")
 data class Car(
-    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) var id: Long? = null,
+    @ColumnInfo(name = "Id") @PrimaryKey(autoGenerate = true) var id: Long? = null,
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "manufacturer") var manufacturer: String,
     @ColumnInfo(name = "type") var type: String,

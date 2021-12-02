@@ -7,13 +7,15 @@ import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.databinding.CarListBinding
 import java.util.*
 
+//Start screen car RV adapter implementaion
 class CarListAdapter(private val listener: CarListClickListener): RecyclerView.Adapter<CarListAdapter.CarListViewHolder>() {
 
-    private val cars = mutableListOf<Car>()
+    private val cars = mutableListOf<Car>() //val for the cars list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CarListViewHolder(
         CarListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-    )
+    ) //attach the layout
 
+    //fill the layout with car datas
     override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
         val carItem = cars[position]
 
