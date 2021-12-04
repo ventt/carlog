@@ -14,6 +14,7 @@ import java.util.*
 class CarListAdapter(private val listener: CarListClickListener): RecyclerView.Adapter<CarListAdapter.CarListViewHolder>() {
 
     private val cars = mutableListOf<Car>() //val for the cars list
+    var car: Car? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CarListViewHolder{
         //CarListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -25,7 +26,8 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
     //fill the layout with car datas
     override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
         val carItem = cars[position]
-
+        holder.bind(carItem)
+        holder.itemView.setOnClickListener{listener.onCarSelected(carItem)}
         holder.binding.carName.text = carItem.name
         holder.binding.carManufac.text = carItem.manufacturer
         holder.binding.carType.text = carItem.type
@@ -52,15 +54,16 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
     }
     inner class CarListViewHolder(private val carView: View) : RecyclerView.ViewHolder(carView){
         var binding = CarListBinding.bind(carView)
-        var car: Car? = null
-        init {
-            binding.root.setOnClickListener{ listener.onCarSelected(car)}
-        }
+
         fun bind(newCar: Car?) {
             car =  newCar
             binding.carName.text = car?.name ?: "car"
         }
+
+
     }
 
 
 }
+
+

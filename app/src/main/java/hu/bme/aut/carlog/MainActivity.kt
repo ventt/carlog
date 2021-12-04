@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: CarLogDatabase
     private lateinit var adapter: CarListAdapter
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -47,9 +50,11 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
     }
 
     override fun onCarSelected(car: Car?) {
+
         val detailsActivityIntent = Intent()
         detailsActivityIntent.setClass(this@MainActivity, DetailsActivity::class.java)
         detailsActivityIntent.putExtra("CAR_ID", car?.id)
+        Toast.makeText(applicationContext,car?.name, Toast.LENGTH_LONG).show()
         startActivity(detailsActivityIntent)
     }
 
