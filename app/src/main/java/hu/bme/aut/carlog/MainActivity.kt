@@ -1,9 +1,14 @@
 package hu.bme.aut.carlog
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.carlog.adapter.CarListAdapter
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.data.CarLogDatabase
@@ -37,7 +42,15 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
         adapter = CarListAdapter(this)
         binding.rvMain.layoutManager = LinearLayoutManager(this)
         binding.rvMain.adapter = adapter
+
         loadItemsInBackground()
+    }
+
+    override fun onCarSelected(car: Car?) {
+        val detailsActivityIntent = Intent()
+        detailsActivityIntent.setClass(this@MainActivity, DetailsActivity::class.java)
+        detailsActivityIntent.putExtra("CAR_ID", car?.id)
+        startActivity(detailsActivityIntent)
     }
 
     private fun loadItemsInBackground() {
@@ -68,3 +81,5 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
     }
 
 }
+
+

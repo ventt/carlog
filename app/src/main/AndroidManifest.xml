@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Carlog">
         <activity
+            android:name=".fragments.details.FuelingDetailsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragments.details.ServiceDetailsFragment"
+            android:exported="false" />
+        <activity
             android:name=".DetailsActivity"
             android:exported="false" />
         <activity

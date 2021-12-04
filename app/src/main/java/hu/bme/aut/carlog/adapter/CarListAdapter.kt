@@ -1,8 +1,11 @@
 package hu.bme.aut.carlog.adapter
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import hu.bme.aut.carlog.R
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.databinding.CarListBinding
 import java.util.*
@@ -11,9 +14,13 @@ import java.util.*
 class CarListAdapter(private val listener: CarListClickListener): RecyclerView.Adapter<CarListAdapter.CarListViewHolder>() {
 
     private val cars = mutableListOf<Car>() //val for the cars list
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CarListViewHolder(
-        CarListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-    ) //attach the layout
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CarListViewHolder{
+        //CarListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.car_list, parent, false)
+        return CarListViewHolder(view)
+
+    } //attach the layout
 
     //fill the layout with car datas
     override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
@@ -25,6 +32,7 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
         holder.binding.produceDate.text = carItem.produceDate.toString()
 
     }
+
     fun addItem(item: Car){
         cars.add(item)
         notifyItemInserted(cars.size - 1)
@@ -40,8 +48,19 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
 
     interface CarListClickListener{
         fun onItemChanged(car: Car)
+        fun onCarSelected(car: Car?)
     }
-    inner class CarListViewHolder(val binding: CarListBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class CarListViewHolder(private val carView: View) : RecyclerView.ViewHolder(carView){
+        var binding = CarListBinding.bind(carView)
+        var car: Car? = null
+        init {
+            binding.root.setOnClickListener{ listener.onCarSelected(car)}
+        }
+        fun bind(newCar: Car?) {
+            car =  newCar
+            binding.carName.text = car?.name ?: "car"
+        }
+    }
 
 
 }
