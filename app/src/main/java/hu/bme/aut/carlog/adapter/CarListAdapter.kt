@@ -17,7 +17,6 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
     var car: Car? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CarListViewHolder{
-        //CarListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.car_list, parent, false)
         return CarListViewHolder(view)
 

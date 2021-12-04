@@ -23,8 +23,14 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         database = CarLogDatabase.getDatabase(applicationContext)
         carId?.let { intent.getLongExtra("CAR_ID", it) }
-        car = database.carDao().getCarById(carId)
-        binding.carName.text = car!!.name
+        getCarFromId(carId)
+
+    }
+    private fun getCarFromId(carId: Long?){
+        Thread{
+            car = database.carDao().getCarById(carId)
+            binding.carName.text = car!!.name
+        }
     }
 }
 
