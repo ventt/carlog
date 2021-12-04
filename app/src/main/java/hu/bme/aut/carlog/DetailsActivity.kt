@@ -2,9 +2,13 @@ package hu.bme.aut.carlog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import com.google.android.material.tabs.TabLayoutMediator
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.data.CarLogDatabase
 import hu.bme.aut.carlog.databinding.ActivityDetailsBinding
+import hu.bme.aut.carlog.fragments.details.DetailsPagerAdapter
+import kotlinx.coroutines.Dispatchers
 
 // TODO: add 2 fragment, implement its intent to the LIST with a parameter of the carID, the two fragments need 2 RV
 class DetailsActivity : AppCompatActivity() {
@@ -24,13 +28,37 @@ class DetailsActivity : AppCompatActivity() {
         database = CarLogDatabase.getDatabase(applicationContext)
         carId?.let { intent.getLongExtra("CAR_ID", it) }
         getCarFromId(carId)
-
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+    override fun onResume() {
+        super.onResume()
+        val detailsPagerAdapter = DetailsPagerAdapter(this)
+        binding.mainViewPager.adapter = detailsPagerAdapter
+
+        TabLayoutMediator(binding.tabLayout, binding.mainViewPager) { tab, position ->
+            tab.text = when(position) {
+                0 -> "Fuelling"
+                1 -> "Service"
+                else -> ""
+            }
+        }.attach()
+    }
+
+
+
+
     private fun getCarFromId(carId: Long?){
         Thread{
             car = database.carDao().getCarById(carId)
-            binding.carName.text = car!!.name
+            supportActionBar?.title = car?.name
         }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

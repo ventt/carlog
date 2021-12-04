@@ -18,6 +18,12 @@ import android.widget.DatePicker
 import java.sql.Date
 import java.text.SimpleDateFormat
 import java.util.*
+import hu.bme.aut.carlog.MainActivity
+
+import android.content.Intent
+
+
+
 
 
 class NewCarItemDialogFragment : DialogFragment() {
@@ -37,6 +43,7 @@ class NewCarItemDialogFragment : DialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as? NewCarItemDialogListener ?: throw RuntimeException("Activity must implement the NewCarItemDialogListener!")
+
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
