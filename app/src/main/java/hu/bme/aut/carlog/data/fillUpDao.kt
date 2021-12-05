@@ -7,7 +7,7 @@ interface fillUpDao {
     @Query("SELECT * FROM fillUp")
     fun getAll(): List<fillUp>
 
-    @Query("SELECT * FROM fillUp WHERE fillUp.carId = :id")
+    @Query("SELECT * FROM fillUp WHERE fillUp.carId = :id ORDER BY fillUp.odometer")
     fun getFuellingFromCarId(id : Long?): List<fillUp>
 
     @Insert

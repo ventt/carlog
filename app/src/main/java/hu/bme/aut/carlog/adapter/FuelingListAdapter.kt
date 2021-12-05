@@ -32,11 +32,11 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
             holder.binding.literPerHundred.text = "Make a full tank"
         }
         holder.binding.fuelingDate.text = item.date
-        holder.binding.fuelingOdometer.text = item.odometer.toString()
+        holder.binding.fuelingOdometer.text = item.odometer.toString() + " km"
         holder.binding.fuelingQunatity.text = item.quantity.toString() + " L"
 
         if(position >= 1 && listOfFuelings[position-1] != null){
-            holder.binding.tripOdometer.text = FuelConsumptionCalc.getTrip(listOfFuelings[position-1].odometer, item.odometer).toString() + " km"
+            holder.binding.tripOdometer.text = "Trip: "+FuelConsumptionCalc.getTrip(listOfFuelings[position-1].odometer, item.odometer).toString() + " km"
         }else{
             holder.binding.tripOdometer.text = "0 km"
         }

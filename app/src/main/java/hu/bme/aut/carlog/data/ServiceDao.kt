@@ -8,7 +8,7 @@ interface ServiceDao {
     @Query("SELECT * FROM CarList")
     fun getServiceList(): List<ServiceRelation>
 
-    @Query("SELECT * FROM serviceList WHERE carId = :id")
+    @Query("SELECT * FROM serviceList WHERE carId = :id ORDER BY serviceList.odometer")
     fun getServiceListByCarId(id: Long?): List<Service>
 
     //vararg can pass one or more arguments, like an array of things
