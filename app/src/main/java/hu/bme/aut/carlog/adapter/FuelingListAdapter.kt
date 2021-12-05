@@ -24,6 +24,7 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
     override fun onBindViewHolder(holder: FillUpViewHolder, position: Int) {
         val item = listOfFuelings[position]
         holder.bind(item)
+        holder.binding.ibDelete.setOnClickListener { listener.onFillUpSelected(item) }
         if(position >= 1 && listOfFuelings[position-1] != null && listOfFuelings[position-1].full_fueling){
             holder.binding.fuelingConsumption.text = FuelConsumptionCalc.getConsumption(listOfFuelings[position-1].odometer,item.odometer, item.quantity).toString()
         }else{

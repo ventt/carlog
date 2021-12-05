@@ -63,6 +63,6 @@ class FuelingDetailsFragment :  Fragment(), FuelingListAdapter.OnFillUpSelectedL
     }
 
     override fun onFillUpSelected(fillUp: fillUp?) {
-
+        Toast.makeText(context, fillUp?.odometer.toString(),Toast.LENGTH_SHORT)
     }
 }
