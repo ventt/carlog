@@ -14,8 +14,7 @@ data class fillUp(
     @ColumnInfo(name = "odometer") var odometer: Int,
     @ColumnInfo(name = "quantity") var quantity: Float,
     @ColumnInfo(name = "price") var price: Float,
-    @ColumnInfo(name = "full_fueling") var full_fueling: Boolean,
-    @ColumnInfo(name = "desc") var description: String
+    @ColumnInfo(name = "full_fueling") var full_fueling: Boolean
 )
 
 

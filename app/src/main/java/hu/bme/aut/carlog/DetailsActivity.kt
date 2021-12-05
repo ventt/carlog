@@ -7,12 +7,17 @@ import android.widget.Toast
 import com.google.android.material.tabs.TabLayoutMediator
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.data.CarLogDatabase
+import hu.bme.aut.carlog.data.fillUp
 import hu.bme.aut.carlog.databinding.ActivityDetailsBinding
+import hu.bme.aut.carlog.fragments.NewFillUpItemDialogFragment
 import hu.bme.aut.carlog.fragments.details.DetailsPagerAdapter
+import hu.bme.aut.carlog.fragments.details.FuelingDetailsFragment
+import hu.bme.aut.carlog.fragments.details.ServiceDetailsFragment
 import kotlinx.coroutines.Dispatchers
+import kotlin.concurrent.thread
 
 // TODO: add 2 fragment, implement its intent to the LIST with a parameter of the carID, the two fragments need 2 RV
-class DetailsActivity : AppCompatActivity() {
+class DetailsActivity : AppCompatActivity(), NewFillUpItemDialogFragment.NewFillUpItemDialogListener {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var database: CarLogDatabase
     private var car: Car? = null
@@ -31,6 +36,7 @@ class DetailsActivity : AppCompatActivity() {
         if(bundle!=null){
             carId = bundle.getLong("extra.id")
         }
+
         getCarFromId(carId)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -60,6 +66,13 @@ class DetailsActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onFillUpItemCreated(newFillUp: fillUp) {
+        newFillUp.carId = carId
+        thread {
+            database.fillUpDao().insert(newFillUp)
+        }
     }
 }
 

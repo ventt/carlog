@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = arrayOf(Car::class, Service::class, fillUp::class),
-    version = 2,
+    version = 3,
 )
 abstract class CarLogDatabase : RoomDatabase() {
     abstract fun carDao(): CarDao
@@ -24,12 +24,11 @@ abstract class CarLogDatabase : RoomDatabase() {
                 database.execSQL("DROP TABLE `carList`")
             }
         }
-        /*
         private val MIGRATION_2_3 = object : Migration(2,3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("DROP TABLE `carList`")
             }
-        }
+        } /*
         private val MIGRATION_3_4 = object : Migration(3,4) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("DROP TABLE `carList`")
