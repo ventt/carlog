@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Carlog">
         <activity
+            android:name=".fragments.NewServiceItemDialogFragment"
+            android:exported="false" />
+        <activity
             android:name=".fragments.NewFillUpItemDialogFragment"
             android:exported="false" />
         <activity

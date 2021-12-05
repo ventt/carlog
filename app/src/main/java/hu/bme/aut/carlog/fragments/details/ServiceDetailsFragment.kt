@@ -12,6 +12,7 @@ import hu.bme.aut.carlog.data.CarLogDatabase
 import hu.bme.aut.carlog.data.Service
 import hu.bme.aut.carlog.databinding.ActivityServiceDetailsFragmentBinding
 import hu.bme.aut.carlog.fragments.NewFillUpItemDialogFragment
+import hu.bme.aut.carlog.fragments.NewServiceItemDialogFragment
 import kotlin.concurrent.thread
 
 class ServiceDetailsFragment : Fragment(), ServiceListAdapter.OnServiceSelectedListener {
@@ -33,9 +34,9 @@ class ServiceDetailsFragment : Fragment(), ServiceListAdapter.OnServiceSelectedL
         binding = ActivityServiceDetailsFragmentBinding.inflate(LayoutInflater.from(context))
         database = context?.let { CarLogDatabase.getDatabase(it) }!!
         binding.fabService.setOnClickListener{
-            NewFillUpItemDialogFragment().show( //TODO NewServiceItemDialogFragment().show
+            NewServiceItemDialogFragment().show(
                 activity.supportFragmentManager,
-                NewFillUpItemDialogFragment.TAG
+                NewServiceItemDialogFragment.TAG
             )
         }
         initRecycleView()
@@ -44,8 +45,8 @@ class ServiceDetailsFragment : Fragment(), ServiceListAdapter.OnServiceSelectedL
     private fun initRecycleView(){
         adapter = ServiceListAdapter(this)
 
-        binding.rvFueling.layoutManager = LinearLayoutManager(activity)
-        binding.rvFueling.adapter = adapter
+        binding.rvService.layoutManager = LinearLayoutManager(activity)
+        binding.rvService.adapter = adapter
 
         loadItemsInBackground()
     }
