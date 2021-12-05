@@ -14,7 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="20dp"
     android:id="@+id/tvServiceType"
-    android:text="Service type"
+    android:text="@string/service_type"
     android:textColor="@color/ocean"
     />
 <LinearLayout
@@ -30,7 +30,7 @@
         android:layout_weight="3"
         android:layout_gravity="center"
         android:textColor="@color/ocean"
-        android:text="Service type"/>
+        android:text=""/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="20dp"
@@ -38,7 +38,7 @@
         android:layout_weight="3"
         android:layout_gravity="center"
         android:textColor="@color/ocean"
-        android:text="Service type"/>
+        android:text=""/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="20dp"
@@ -46,25 +46,22 @@
         android:layout_gravity="center"
         android:layout_weight="3"
         android:textColor="@color/ocean"
-        android:text="Service type"/>
+        android:text=""/>
 </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/ocean"
-        android:text="Description:"/>
-
+        android:text="@string/description"/>
     <TextView
         android:id="@+id/tvServiceDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/ocean"/>
-
     <ImageButton
         android:id="@+id/ibServiceDelete"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/trashbin"
         android:backgroundTint="@color/ocean"/>
-
 </LinearLayout>

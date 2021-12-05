@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/ocean"
                 android:layout_weight="1"
-                android:text="DD-MM-YYYY" />
+                android:text="@string/dd_mm_yyyy" />
 
             <TextView
                 android:id="@+id/tripOdometer"
@@ -40,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/ocean"
                 android:layout_weight="1"
-                android:text="Odometer km" />
+                android:text="@string/odometer_km" />
 
         </LinearLayout>
 
@@ -58,7 +58,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:textColor="@color/ocean"
-                android:text="Odometer km" />
+                android:text="@string/odometer_km" />
 
             <TextView
                 android:id="@+id/fuelingQunatity"
@@ -66,11 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/ocean"
-                android:text="Quantity l" />
-
-
+                android:text="@string/quantity_l" />
         </LinearLayout>
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
@@ -85,14 +82,14 @@
             android:layout_height="0dp"
             android:textColor="@color/ocean"
             android:layout_weight="1"
-            android:text="12,01"/>
+            android:text=""/>
         <TextView
             android:id="@+id/literPerHundred"
             android:layout_width="match_parent"
             android:textColor="@color/ocean"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="l/100km"/>
+            android:text="@string/l_100km"/>
 
     </LinearLayout>
     <ImageButton

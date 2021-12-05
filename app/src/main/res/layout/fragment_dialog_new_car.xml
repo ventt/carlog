@@ -1,66 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="12dip">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name" />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dip"
-        android:text="Manufacturer" />
-
-    <EditText
-        android:id="@+id/etManuf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dip"
-        android:text="Type" />
-
-    <EditText
-        android:id="@+id/etType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:weightSum="5">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dip"
-            android:layout_weight="2"
-            android:layout_gravity="center"
-            android:text="Produce Date:" />
-        <DatePicker
-            android:id="@+id/dpStartDate"
+            android:text="@string/manufacturer" />
+
+        <EditText
+            android:id="@+id/etManuf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dip"
+            android:text="@string/type" />
 
+        <EditText
+            android:id="@+id/etType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dip"
+                android:layout_weight="2"
+                android:text="@string/produce_date" />
+
+            <DatePicker
+                android:id="@+id/dpStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
+
+        </LinearLayout>
     </LinearLayout>
-
-
-
-
-</LinearLayout>
+</ScrollView>

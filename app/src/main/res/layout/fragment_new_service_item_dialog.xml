@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,19 +12,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Service Type" />
+        android:text="@string/service_type" />
 
     <EditText
         android:id="@+id/etServiceType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="serviceType"/>
+        android:text=""/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="odometer" />
+        android:text="@string/odometer" />
 
     <EditText
         android:id="@+id/etServiceOdometer"
@@ -31,7 +35,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Does it have oil change?"/>
+        android:text="@string/does_it_have_oil_change"/>
 
     <CheckBox
         android:id="@+id/cbFullFueling"
@@ -40,13 +44,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Service Description" />
+        android:text="@string/service_description" />
 
     <EditText
         android:id="@+id/etServiceDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"/>
+        android:text="@string/description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,18 +61,18 @@
         android:weightSum="5">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dip"
             android:layout_weight="2"
             android:layout_gravity="center"
-            android:text="Service Date:" />
+            android:text="@string/service_date" />
         <DatePicker
             android:id="@+id/dpServiceDate"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
-
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

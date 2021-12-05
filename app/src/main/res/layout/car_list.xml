@@ -20,24 +20,24 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        tools:text="Autom" />
+        tools:text="" />
     <TextView
         android:id="@+id/carManufac"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        tools:text="Renault" />
+        tools:text="" />
     <TextView
         android:id="@+id/carType"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        tools:text="Megane" />
+        tools:text="" />
     <TextView
         android:id="@+id/produceDate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        tools:text="2000" />
+        tools:text="" />
 
 </LinearLayout>
