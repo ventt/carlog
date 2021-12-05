@@ -50,11 +50,11 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
     }
 
     override fun onCarSelected(car: Car?) {
-
         val detailsActivityIntent = Intent()
         detailsActivityIntent.setClass(this@MainActivity, DetailsActivity::class.java)
-        detailsActivityIntent.putExtra("EXTRA_CAR_ID", car?.id)
-        Toast.makeText(applicationContext,car?.name, Toast.LENGTH_LONG).show()
+        if (car != null) {
+            detailsActivityIntent.putExtra(DetailsActivity.EXTRA_CAR_ID, car.id)
+        }
         startActivity(detailsActivityIntent)
     }
 

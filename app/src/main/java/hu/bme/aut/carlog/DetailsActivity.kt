@@ -3,6 +3,7 @@ package hu.bme.aut.carlog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.tabs.TabLayoutMediator
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.data.CarLogDatabase
@@ -26,7 +27,10 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         database = CarLogDatabase.getDatabase(applicationContext)
-        carId?.let { intent.getLongExtra("EXTRA_CAR_ID", it) } //TODO itt nem  jon at valamiert a car ID
+        var bundle : Bundle ? = intent.extras
+        if(bundle!=null){
+            carId = bundle.getLong("extra.id")
+        }
         getCarFromId(carId)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

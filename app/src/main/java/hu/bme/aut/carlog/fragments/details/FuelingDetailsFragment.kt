@@ -42,8 +42,8 @@ class FuelingDetailsFragment :  Fragment(), FuelingListAdapter.OnFillUpSelectedL
 
     private fun loadItemsInBackground() {
         thread {
-            val items = database.fillUpDao().getFuellingFromCarId(1) //TODO nem tudja megjeleniteni a categoriakat
-           // val items = activity.carId?.let { database.fillUpDao().getFuellingFromCarId(it) }
+            //val items = database.fillUpDao().getFuellingFromCarId(1) //TODO nem tudja megjeleniteni a categoriakat
+           val items = activity.carId?.let { database.fillUpDao().getFuellingFromCarId(it) }
             activity?.runOnUiThread(){
                 if (items != null) {
                     adapter.update(items)
