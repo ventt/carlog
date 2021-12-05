@@ -62,9 +62,6 @@ class ServiceListAdapter(private val listener: OnServiceSelectedListener) : Recy
         var binding = ServiceListItemBinding.bind(itemView)
         var item: Service? = null
 
-        /*init {
-            binding.root.setOnClickListener { listener.onFillUpSelected(item) }
-        }*/
 
         fun bind(service: Service) {
             item = service

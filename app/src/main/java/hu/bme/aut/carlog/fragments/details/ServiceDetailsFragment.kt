@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.carlog.DetailsActivity
 import hu.bme.aut.carlog.adapter.ServiceListAdapter
+import hu.bme.aut.carlog.data.Car
+import hu.bme.aut.carlog.data.CarDao
 import hu.bme.aut.carlog.data.CarLogDatabase
 import hu.bme.aut.carlog.data.Service
 import hu.bme.aut.carlog.databinding.ActivityServiceDetailsFragmentBinding

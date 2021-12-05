@@ -7,7 +7,10 @@
     android:paddingTop="8dp"
     android:paddingRight="16dp"
     android:paddingBottom="8dp"
-    android:weightSum="8">
+    android:layout_margin="5dp"
+    android:weightSum="8"
+    android:background="@drawable/li_stroke"
+    android:backgroundTint="@color/my_grey">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -27,6 +30,7 @@
                 android:id="@+id/fuelingDate"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/ocean"
                 android:layout_weight="1"
                 android:text="DD-MM-YYYY" />
 
@@ -34,6 +38,7 @@
                 android:id="@+id/tripOdometer"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/ocean"
                 android:layout_weight="1"
                 android:text="Odometer km" />
 
@@ -43,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="16dp"
             android:layout_weight="4"
+            android:textColor="@color/ocean"
             android:weightSum="2"
             android:orientation="horizontal">
 
@@ -51,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:textColor="@color/ocean"
                 android:text="Odometer km" />
 
             <TextView
@@ -58,6 +65,7 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/ocean"
                 android:text="Quantity l" />
 
 
@@ -75,11 +83,13 @@
             android:id="@+id/fuelingConsumption"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:textColor="@color/ocean"
             android:layout_weight="1"
             android:text="12,01"/>
         <TextView
             android:id="@+id/literPerHundred"
             android:layout_width="match_parent"
+            android:textColor="@color/ocean"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="l/100km"/>
@@ -89,6 +99,7 @@
         android:id="@+id/ibDelete"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/trashbin"/>
+        android:background="@drawable/trashbin"
+        android:backgroundTint="@color/ocean"/>
 
 </LinearLayout>

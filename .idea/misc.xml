@@ -6,9 +6,10 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.228125" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.228125" />
+        <entry key="app/src/main/res/drawable/li_background.xml" value="0.19473684210526315" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_fueling_details_fragment.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_new_fill_up_item_dialog_fragment.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/activity_service_details_fragment.xml" value="0.13388157894736843" />
         <entry key="app/src/main/res/layout/car_list.xml" value="0.21197916666666666" />
