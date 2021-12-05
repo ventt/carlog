@@ -15,7 +15,7 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var database: CarLogDatabase
     private var car: Car? = null
-    private var carId: Long? = null
+    var carId: Long? = null
 
     companion object {
         private const val TAG = "DetailsActivity"
@@ -26,7 +26,7 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         database = CarLogDatabase.getDatabase(applicationContext)
-        carId?.let { intent.getLongExtra("CAR_ID", it) }
+        carId?.let { intent.getLongExtra("EXTRA_CAR_ID", it) } //TODO itt nem  jon at valamiert a car ID
         getCarFromId(carId)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -44,12 +44,9 @@ class DetailsActivity : AppCompatActivity() {
         }.attach()
     }
 
-
-
-
     private fun getCarFromId(carId: Long?){
         Thread{
-            car = database.carDao().getCarById(carId)
+            car = carId?.let { database.carDao().getCarById(it) }
             supportActionBar?.title = car?.name
         }
     }

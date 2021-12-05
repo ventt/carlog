@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), CarListAdapter.CarListClickListener, N
 
         val detailsActivityIntent = Intent()
         detailsActivityIntent.setClass(this@MainActivity, DetailsActivity::class.java)
-        detailsActivityIntent.putExtra("CAR_ID", car?.id)
+        detailsActivityIntent.putExtra("EXTRA_CAR_ID", car?.id)
         Toast.makeText(applicationContext,car?.name, Toast.LENGTH_LONG).show()
         startActivity(detailsActivityIntent)
     }

@@ -10,12 +10,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 
 @Database(
-    entities = arrayOf(Car::class, Service::class),
-    version = 3,
+    entities = arrayOf(Car::class, Service::class, fillUp::class),
+    version = 2,
 )
 abstract class CarLogDatabase : RoomDatabase() {
     abstract fun carDao(): CarDao
     abstract fun ServiceDao(): ServiceDao
+    abstract fun fillUpDao(): fillUpDao
 
     companion object {
         private val MIGRATION_1_2 = object : Migration(1,2) {
@@ -23,11 +24,17 @@ abstract class CarLogDatabase : RoomDatabase() {
                 database.execSQL("DROP TABLE `carList`")
             }
         }
+        /*
         private val MIGRATION_2_3 = object : Migration(2,3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("DROP TABLE `carList`")
             }
         }
+        private val MIGRATION_3_4 = object : Migration(3,4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("DROP TABLE `carList`")
+            }
+        }*/
 
         fun getDatabase(applicationContext: Context): CarLogDatabase {
             return Room.databaseBuilder(

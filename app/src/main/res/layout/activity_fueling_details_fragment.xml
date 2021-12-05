@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.details.FuelingDetailsFragment">
 
-    <!--<com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        tools:listitem="@layout/car_list" />
+        tools:listitem="@layout/fueling_list_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabFueling"
@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        app:srcCompat="@drawable/ic_add_white_36dp" />-->
+        app:srcCompat="@drawable/ic_add_white_36dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
