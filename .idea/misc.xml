@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/layout/fragment_new_fill_up_item_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_serviec_details.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fueling_list_item.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/service_list_item.xml" value="0.2375" />
       </map>
     </option>
   </component>

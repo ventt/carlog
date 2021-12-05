@@ -15,6 +15,5 @@ data class Service (
     @ColumnInfo(name = "odometer") var mileage: Int? = null,
     @ColumnInfo(name = "date") var date: String? = null,
     @ColumnInfo(name = "desc") var description: String,
-    @ColumnInfo(name = "oil_change") var oil_change: Boolean,
-    @ColumnInfo(name = "oil_change_date") var oil_change_date: String
+    @ColumnInfo(name = "oil_change") var oil_change: Boolean
 )
