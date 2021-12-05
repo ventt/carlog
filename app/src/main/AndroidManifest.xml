@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="hu.bme.aut.carlog">
 
     <application
@@ -11,16 +12,20 @@
         android:theme="@style/Theme.Carlog">
         <activity
             android:name=".fragments.NewServiceItemDialogFragment"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".fragments.NewFillUpItemDialogFragment"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".fragments.details.FuelingDetailsFragment"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".fragments.details.ServiceDetailsFragment"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".DetailsActivity"
             android:exported="false" />
