@@ -18,7 +18,6 @@
     <string name="service_date">Service Date:</string>
     <string name="dd_mm_yyyy">DD-MM-YYYY</string>
     <string name="odometer_km">Odometer km</string>
-    <string name="odometer_km">Odometer km</string>
     <string name="quantity_l">Quantity l</string>
     <string name="l_100km">l/100km</string>
 </resources>

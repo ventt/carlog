@@ -8,7 +8,7 @@ interface fillUpDao {
     fun getAll(): List<fillUp>
 
     @Query("SELECT * FROM fillUp WHERE fillUp.carId = :id")
-    fun getFuellingFromCarId(id : Long): List<fillUp>
+    fun getFuellingFromCarId(id : Long?): List<fillUp>
 
     @Insert
     fun insert(fillUp: fillUp)

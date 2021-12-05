@@ -7,8 +7,8 @@ interface CarDao {
     @Query("SELECT * FROM carList")
     fun getAll(): List<Car>
 
-    @Query("SELECT * FROM carList WHERE carlist.Id = :id")
-    fun getCarById(id : Long): Car
+    @Query("SELECT * FROM carList WHERE carList.Id = :id")
+    fun getCarById(id : Long?): Car
 
     @Insert
     fun insert(car: Car): Long

@@ -9,7 +9,7 @@ interface ServiceDao {
     fun getServiceList(): List<ServiceRelation>
 
     @Query("SELECT * FROM serviceList WHERE carId = :id")
-    fun getServiceListByCarId(id: Long): List<Service>
+    fun getServiceListByCarId(id: Long?): List<Service>
 
     //vararg can pass one or more arguments, like an array of things
     @Insert(onConflict = OnConflictStrategy.REPLACE)
