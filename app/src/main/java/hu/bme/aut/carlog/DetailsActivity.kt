@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.tabs.TabLayoutMediator
+import hu.bme.aut.carlog.adapter.FuelingListAdapter
 import hu.bme.aut.carlog.data.Car
 import hu.bme.aut.carlog.data.CarLogDatabase
 import hu.bme.aut.carlog.data.fillUp
@@ -18,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlin.concurrent.thread
 
 // TODO: add 2 fragment, implement its intent to the LIST with a parameter of the carID, the two fragments need 2 RV
-class DetailsActivity : AppCompatActivity(), NewFillUpItemDialogFragment.NewFillUpItemDialogListener {
+class DetailsActivity : AppCompatActivity(), NewFillUpItemDialogFragment.NewFillUpItemDialogListener, FuelingListAdapter.OnFillUpSelectedListener {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var database: CarLogDatabase
     private var car: Car? = null
@@ -74,6 +75,10 @@ class DetailsActivity : AppCompatActivity(), NewFillUpItemDialogFragment.NewFill
         thread {
             database.fillUpDao().insert(newFillUp)
         }
+        onResume()
+    }
+
+    override fun onFillUpSelectedDelete(fillUp: fillUp?) {
     }
 }
 

@@ -13,7 +13,7 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
     private val listOfFuelings = mutableListOf<fillUp>()
 
     interface OnFillUpSelectedListener {
-        fun onFillUpSelected(fillUp: fillUp?)
+        fun onFillUpSelectedDelete(fillUp: fillUp?)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FillUpViewHolder {
@@ -24,7 +24,7 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
     override fun onBindViewHolder(holder: FillUpViewHolder, position: Int) {
         val item = listOfFuelings[position]
         holder.bind(item)
-        holder.binding.ibDelete.setOnClickListener { listener.onFillUpSelected(item) }
+        holder.binding.ibDelete.setOnClickListener { listener.onFillUpSelectedDelete(item) }
         if(position >= 1 && listOfFuelings[position-1] != null && listOfFuelings[position-1].full_fueling){
             holder.binding.fuelingConsumption.text = FuelConsumptionCalc.getConsumption(listOfFuelings[position-1].odometer,item.odometer, item.quantity).toString()
         }else{
@@ -53,11 +53,11 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
         listOfFuelings.addAll(fillUp)
         notifyDataSetChanged()
     }
-    fun removeFueling(position: Int) {
-        listOfFuelings.removeAt(position)
-        notifyItemRemoved(position)
-        if (position < listOfFuelings.size) {
-            notifyItemRangeChanged(position, listOfFuelings.size - position)
+    fun removeFueling(fillUp: fillUp?) {
+        listOfFuelings.remove(fillUp)
+        notifyItemRemoved(listOfFuelings.indexOf(fillUp))
+        if (listOfFuelings.indexOf(fillUp) < listOfFuelings.size) {
+            notifyItemRangeChanged(listOfFuelings.indexOf(fillUp), listOfFuelings.size - listOfFuelings.indexOf(fillUp))
         }
     }
 
@@ -65,9 +65,9 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
         var binding = FuelingListItemBinding.bind(itemView)
         var item: fillUp? = null
 
-        init {
+        /*init {
             binding.root.setOnClickListener { listener.onFillUpSelected(item) }
-        }
+        }*/
 
         fun bind(newFueling: fillUp) {
             item = newFueling
