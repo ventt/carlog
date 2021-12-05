@@ -44,10 +44,6 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
 
     override fun getItemCount(): Int = listOfFuelings.size
 
-    fun addFueling(newFueling: fillUp) {
-        listOfFuelings.add(newFueling)
-        notifyItemInserted(listOfFuelings.size - 1)
-    }
     fun update(fillUp: List<fillUp>){
         listOfFuelings.clear()
         listOfFuelings.addAll(fillUp)
@@ -64,10 +60,6 @@ class FuelingListAdapter(private val listener: OnFillUpSelectedListener) : Recyc
     inner class FillUpViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = FuelingListItemBinding.bind(itemView)
         var item: fillUp? = null
-
-        /*init {
-            binding.root.setOnClickListener { listener.onFillUpSelected(item) }
-        }*/
 
         fun bind(newFueling: fillUp) {
             item = newFueling

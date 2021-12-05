@@ -20,7 +20,6 @@ import hu.bme.aut.carlog.fragments.details.ServiceDetailsFragment
 import kotlinx.coroutines.Dispatchers
 import kotlin.concurrent.thread
 
-// TODO: add 2 fragment, implement its intent to the LIST with a parameter of the carID, the two fragments need 2 RV
 class DetailsActivity : AppCompatActivity(), NewFillUpItemDialogFragment.NewFillUpItemDialogListener, NewServiceItemDialogFragment.NewServiceItemDialogListener,FuelingListAdapter.OnFillUpSelectedListener {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var database: CarLogDatabase

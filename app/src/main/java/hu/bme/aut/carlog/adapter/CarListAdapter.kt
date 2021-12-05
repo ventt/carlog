@@ -26,11 +26,11 @@ class CarListAdapter(private val listener: CarListClickListener): RecyclerView.A
     override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
         val carItem = cars[position]
         holder.bind(carItem)
-        //holder.itemView.setOnClickListener{listener.onCarSelected(carItem)}
+
         holder.binding.carName.text = carItem.name
         holder.binding.carManufac.text = carItem.manufacturer
         holder.binding.carType.text = carItem.type
-        holder.binding.produceDate.text = carItem.produceDate.toString()
+        holder.binding.produceDate.text = carItem.produceDate
 
     }
 
